@@ -15,11 +15,11 @@ module.exports = {
     jest: true,
   },
   ignorePatterns: ['.eslintrc.js'],
-  include: ['.eslintrc.js'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
   },
+  include: ['.eslintrc.js'],
 };
