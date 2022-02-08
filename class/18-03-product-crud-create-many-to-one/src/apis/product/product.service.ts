@@ -70,18 +70,19 @@ export class ProductService {
     // 2-2. 한번에 분해하기
     const { productSaleslocation, productCategoryId, ...product } =
       createProductInput;
-    const result2 = await this.productCategoryRepository.findOne({
-      id: productCategoryId,
-    });
 
     const result1 = await this.productSaleslocationRepository.save({
       ...productSaleslocation,
     });
 
+    const result2 = await this.productCategoryRepository.findOne({
+      id: productCategoryId,
+    });
+
     return await this.productRepository.save({
       ...product,
       productSaleslocation: result1,
-      productCategory: result2,
+      productCategory: result2, // { id: productCategoryId }와 차이점 비교하기
     });
   }
 
