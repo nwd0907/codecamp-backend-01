@@ -29,7 +29,7 @@ import { UserModule } from './apis/user/user.module';
       host: 'my_database',
       port: 3306,
       username: 'root',
-      password: '12345678',
+      password: 'root',
       database: 'myproject',
       entities: [__dirname + '/apis/**/*.entity.*'],
       synchronize: true,
