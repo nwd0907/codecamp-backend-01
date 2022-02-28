@@ -8,8 +8,8 @@ import { PointTransactionModule } from './apis/pointTransaction/pointTransaction
 import { ProductModule } from './apis/product/product.module';
 import { ProductCategoryModule } from './apis/productCategory/productCategory.module';
 import { UserModule } from './apis/user/user.module';
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -23,20 +23,21 @@ import { UserModule } from './apis/user/user.module';
     GraphQLModule.forRoot({
       autoSchemaFile: 'src/common/graphql/schema.gql',
       context: ({ req, res }) => ({ req, res }),
+      playground: true,
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '10.51.48.4',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'myproject',
+      host: process.env.TYPEORM_HOST,
+      port: Number(process.env.TYPEORM_PORT),
+      username: process.env.TYPEORM_USERNAME,
+      password: process.env.TYPEORM_PASSWORD,
+      database: process.env.TYPEORM_DATABASE,
       entities: [__dirname + '/apis/**/*.entity.*'],
-      synchronize: true,
       logging: true,
+      synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
     }),
   ],
-  // controllers: [AppController],
-  // providers: [AppService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

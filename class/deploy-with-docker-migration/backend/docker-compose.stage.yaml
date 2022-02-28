@@ -5,12 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./src:/my_backend/src
+    # volumes:
+    #   - ./src:/my_backend/src
     env_file:
-      - ./.env
+      - ./.env.stage
     ports:
       - 3000:3000
+    command: 'yarn start:prod'
 
   my_database:
     platform: linux/x86_64
@@ -18,3 +19,5 @@ services:
     environment:
       MYSQL_DATABASE: 'myproject'
       MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306

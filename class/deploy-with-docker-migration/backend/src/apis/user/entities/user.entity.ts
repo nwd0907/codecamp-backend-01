@@ -24,6 +24,26 @@ export class User {
   @Field(() => Int)
   age: number;
 
+  @Column({ nullable: true })
+  @Field(() => String, { nullable: true })
+  school: string;
+
+  @Column({ nullable: true })
+  @Field(() => String, { nullable: true })
+  hobby: string;
+
+  @Column({ nullable: true })
+  @Field(() => String, { nullable: true })
+  apple: string;
+
+  @Column({ nullable: true })
+  @Field(() => String, { nullable: true })
+  banana: string;
+
+  @Column({ nullable: true })
+  @Field(() => String, { nullable: true })
+  qqq: string;
+
   @Column({ default: 0 })
   @Field(() => Int)
   point: number;

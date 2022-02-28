@@ -7,6 +7,11 @@ type User {
   email: String!
   name: String!
   age: Int!
+  school: String
+  hobby: String
+  apple: String
+  banana: String
+  qqq: String
   point: Int!
 }
 
@@ -15,6 +20,11 @@ type Board {
   writer: String!
   title: String!
   contents: String!
+  hobby: String
+  apple: String
+  apple2: String
+  apple3: String
+  apple4: String
 }
 
 type PointTransaction {
